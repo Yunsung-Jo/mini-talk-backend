@@ -1,0 +1,15 @@
+version: '3.8'
+
+networks:
+  back-network:
+    external: true
+    name: back-network
+
+services:
+  mini-talk:
+    image: mini-talk
+    container_name: mini-talk
+    build: .
+    restart: always
+    networks:
+      - back-network
