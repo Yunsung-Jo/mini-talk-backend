@@ -1,0 +1,8 @@
+spring:
+  datasource:
+    url: ${MARIADB_URL}
+    username: ${MARIADB_USERNAME}
+    password: ${MARIADB_PASSWORD}
+
+  jpa:
+    open-in-view: false
