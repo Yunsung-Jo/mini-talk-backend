@@ -28,7 +28,7 @@ public class SecurityConfig {
                 .sessionManagement(customizers -> customizers.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .addFilterBefore(new JwtTokenFilter(jwtTokenUtil), UsernamePasswordAuthenticationFilter.class)
                 .authorizeHttpRequests(customizers -> customizers
-                        .requestMatchers("/login").permitAll()
+                        .requestMatchers("mini-talk/login").permitAll()
                         .anyRequest().authenticated())
                 .build();
     }

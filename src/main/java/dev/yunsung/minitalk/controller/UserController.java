@@ -5,16 +5,18 @@ import dev.yunsung.minitalk.model.User;
 import dev.yunsung.minitalk.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
+@RequestMapping("mini-talk")
 @RequiredArgsConstructor
 public class UserController {
 
     private final UserService userService;
     private final JwtTokenUtil jwtTokenUtil;
 
-    @PostMapping("/login")
+    @PostMapping("login")
     public String login(String idToken) {
         User user = userService.loadUser(idToken);
         if (user == null) {
