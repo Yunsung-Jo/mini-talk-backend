@@ -13,3 +13,9 @@ services:
     restart: always
     networks:
       - back-network
+    environment:
+      - MARIADB_URL=${MARIADB_URL}
+      - MARIADB_USERNAME=${MARIADB_USERNAME}
+      - MARIADB_PASSWORD=${MARIADB_PASSWORD}
+      - SECRET={$SECRET}
+      - CLIENT_ID=${CLIENT_ID}

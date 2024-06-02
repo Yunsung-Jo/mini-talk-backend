@@ -3,6 +3,15 @@ spring:
     url: ${MARIADB_URL}
     username: ${MARIADB_USERNAME}
     password: ${MARIADB_PASSWORD}
+    driver-class-name: org.mariadb.jdbc.Driver
 
   jpa:
+    hibernate:
+      ddl-auto: update
     open-in-view: false
+
+  jwt:
+    secret: ${SECRET}
+
+external:
+  client-id: ${CLIENT_ID}
