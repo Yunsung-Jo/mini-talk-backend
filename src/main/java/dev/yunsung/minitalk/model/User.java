@@ -32,4 +32,10 @@ public class User {
         this.email = email;
         this.picture = picture;
     }
+
+    public User update(String name, String picture) {
+        this.name = name;
+        this.picture = picture;
+        return this;
+    }
 }

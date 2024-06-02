@@ -24,8 +24,9 @@ public class JwtTokenUtil {
     }
 
     public String createToken(String userId) {
-        Claims claims = Jwts.claims().build();
-        claims.put("userId", userId);
+        Claims claims = Jwts.claims()
+                .add("userId", userId)
+                .build();
         long expireTime = 1000 * 60 * 60 * 24;
         return Jwts.builder()
                 .claims(claims)

@@ -33,12 +33,15 @@ public class UserService {
             String email = payload.getEmail();
             String picture = (String) payload.get("picture");
 
-            return userRepository.save(User.builder()
-                    .userId(userId)
-                    .name(name)
-                    .email(email)
-                    .picture(picture)
-                    .build());
+            User user = userRepository.findByUserId(userId)
+                    .map(entity -> entity.update(name, picture))
+                    .orElse(User.builder()
+                            .userId(userId)
+                            .name(name)
+                            .email(email)
+                            .picture(picture)
+                            .build());
+            return userRepository.save(user);
         } catch (Exception e) {
             return null;
         }
