@@ -5,11 +5,9 @@ import dev.yunsung.minitalk.model.User;
 import dev.yunsung.minitalk.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("mini-talk")
 @RequiredArgsConstructor
 public class UserController {
 
