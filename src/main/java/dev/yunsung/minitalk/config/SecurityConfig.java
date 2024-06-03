@@ -2,6 +2,7 @@ package dev.yunsung.minitalk.config;
 
 import dev.yunsung.minitalk.jwt.JwtTokenFilter;
 import dev.yunsung.minitalk.jwt.JwtTokenUtil;
+import dev.yunsung.minitalk.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -18,6 +19,7 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 @RequiredArgsConstructor
 public class SecurityConfig {
 
+    private final UserService userService;
     private final JwtTokenUtil jwtTokenUtil;
 
     @Bean
@@ -26,7 +28,7 @@ public class SecurityConfig {
                 .httpBasic(HttpBasicConfigurer::disable)
                 .csrf(CsrfConfigurer::disable)
                 .sessionManagement(customizers -> customizers.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
-                .addFilterBefore(new JwtTokenFilter(jwtTokenUtil), UsernamePasswordAuthenticationFilter.class)
+                .addFilterBefore(new JwtTokenFilter(userService, jwtTokenUtil), UsernamePasswordAuthenticationFilter.class)
                 .authorizeHttpRequests(customizers -> customizers
                         .requestMatchers("login").permitAll()
                         .anyRequest().authenticated())
