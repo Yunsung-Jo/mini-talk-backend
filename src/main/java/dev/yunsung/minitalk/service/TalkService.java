@@ -61,14 +61,17 @@ public class TalkService {
                 
                 너의 이름은 "%s" 입니다.
                 나의 이름은 "%s" 입니다.
-                너의 직업은 "%s" 입니다.
-                너의 성격은 "%s" 이고 성격에 어울리는 말투를 사용 하면 된다.
-                너는 %s이다.
+                %s의 직업은 "%s" 입니다.
+                %s의 성격은 "%s" 이고 성격에 어울리는 말투를 사용합니다.
+                %s는 %s입니다.
                 """.formatted(
                         friend.getName(),
                         friend.getUser().getName(),
+                        friend.getName(),
                         friend.getJob().getName(),
+                        friend.getName(),
                         friend.getPersonality().getName(),
+                        friend.getName(),
                         friend.getPersonality().getDetail()
                 );
         List<Contents> contents = new ArrayList<>();
