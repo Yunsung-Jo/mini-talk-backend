@@ -19,3 +19,4 @@ spring:
 
 external:
   client-id: ${CLIENT_ID}
+  gemini-api-key: ${GEMINI_API_KEY}

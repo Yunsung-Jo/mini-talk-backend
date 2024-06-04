@@ -12,4 +12,5 @@ import org.springframework.stereotype.Component;
 public class ExternalProperties {
 
     private String clientId;
+    private String geminiApiKey;
 }
